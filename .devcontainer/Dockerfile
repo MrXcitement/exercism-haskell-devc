@@ -1,5 +1,5 @@
 ## Build a haskel GHCup based image and exercism cli
-## Note: on local arm64/Apple Silicon do not use -buster variants 
+## Note: on local arm64/Apple Silicon do not use -buster variants
 ## https://github.com/devcontainers/images/tree/main/src/gojk
 FROM mcr.microsoft.com/devcontainers/go
 
@@ -28,5 +28,5 @@ RUN go install -x github.com/exercism/cli/exercism@latest
 USER vscode
 
 # Install GCHup into their home directory
-RUN curl --proto '=https' --tlsv1.2 -sSf https://get-ghcup.haskell.org | sh \
+RUN BOOTSTRAP_HASKELL_MINIMAL=1 curl --proto '=https' --tlsv1.2 -sSf https://get-ghcup.haskell.org | sh \
     && echo PATH="$HOME/.cabal/bin:$HOME/.ghcup/bin:$PATH" >> "$HOME/.profile"
