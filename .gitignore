@@ -1,5 +1,5 @@
-# exercism-haskell project
-haskell/
+# exercism-haskell projects
+haskell/*/.exercism/metadata.json
 
 # macos
 .DS_Store
